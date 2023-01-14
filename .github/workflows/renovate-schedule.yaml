@@ -15,7 +15,7 @@ on:
   schedule:
     # NOTE: The longest build for an app is roughly 1h20m (home-assistant/arm64)
     # Keep this to run every 2 or more hours to prevent gremlins from spawning
-    - cron: "0 */2 * * *"
+    - cron: "0 */4 * * *"
   push:
     branches:
       - main
