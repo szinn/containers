@@ -3,20 +3,17 @@
 #shellcheck disable=SC1091
 test -f "/scripts/umask.sh" && source "/scripts/umask.sh"
 
-# if test -z "${LAZYLIBRARIAN__LOG_DIR}"; then
-#     LAZYLIBRARIAN__LOG_DIR="/config/log"
-# fi
-# if test -z "${LAZYLIBRARIAN__BOOK_DIR}"; then
-#     LAZYLIBRARIAN__BOOK_DIR="/books"
-# fi
-# if test -z "${LAZYLIBRARIAN__DOWNLOAD_DIR}"; then
-#     LAZYLIBRARIAN__DOWNLOAD_DIR="/downloads"
-# fi
-
-# Discover existing configuration settings for backwards compatibility
+# Create configuration if not present
 if ! [[ -f /config/config.ini ]]; then
     envsubst < /defaults/config.ini.tmpl > /config/config.ini
 fi
+
+# Override configuration with environment settings
+[[ -n "${LAZYLIBRARIAN__LOG_DIR}" ]] && crudini --set /config/config.ini General logdir ${LAZYLIBRARIAN__LOG_DIR}
+[[ -n "${LAZYLIBRARIAN__LOG_LEVEL}" ]] && crudini --set /config/config.ini General loglevel ${LAZYLIBRARIAN__LOG_LEVEL}
+[[ -n "${LAZYLIBRARIAN__DATA_DIR}" ]] && crudini --set /config/config.ini General destination_dir ${LAZYLIBRARIAN__DATA_DIR}
+[[ -n "${LAZYLIBRARIAN__API_KEY}" ]] && crudini --set /config/config.ini General api_key ${LAZYLIBRARIAN__API_KEY}
+
 
 #shellcheck disable=SC2086
 exec \
