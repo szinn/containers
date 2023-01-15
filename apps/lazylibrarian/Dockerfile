@@ -29,23 +29,6 @@ RUN \
         zlib1g \
         unrar
 
-#    && \
-# RUN \
-#     mkdir /tmp/unrar && \
-#     curl -o \
-#         /tmp/unrar.tar.gz -L \
-#         "https://www.rarlab.com/rar/unrarsrc-${UNRAR_VERSION}.tar.gz" && \
-#     tar xf /tmp/unrar.tar.gz -C /tmp/unrar --strip-components=1
-
-#    && \
-# RUN \
-#     cd /tmp/unrar \
-#     && \
-#     make \
-#     && \
-#     install -v -m755 unrar /usr/bin
-
-#    && \
 RUN \
     mkdir -p /app/lazylibrarian \
     && \
@@ -53,7 +36,6 @@ RUN \
     && \
     printf "%s\n" "${VERSION}" > /defaults/version.txt
 
-#    && \
 RUN \
     curl -o \
         /tmp/lazylibrarian.tar.gz -L \
@@ -70,14 +52,10 @@ RUN \
         certifi \
         beautifulsoup4 \
         soupsieve \
-        levenshtein
-#    && \
-# RUN \
-#     pip3 install -U --no-cache-dir pip wheel \
-#     && \
-#     pip3 install -U --no-cache-dir --find-links https://wheel-index.linuxserver.io/ubuntu/ .
+        levenshtein \
+        apprise \
+        urllib3
 
-#    && \
 RUN \
     apt-get -y purge \
         libjpeg-turbo8-dev \
