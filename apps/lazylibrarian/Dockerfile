@@ -51,7 +51,7 @@ RUN \
     && \
     mkdir -p /defaults \
     && \
-    printf "%s" "${VERSION}" > /defaults/version.txt
+    printf "%s\n" "${VERSION}" > /defaults/version.txt
 
 #    && \
 RUN \
