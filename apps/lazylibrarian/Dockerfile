@@ -27,7 +27,8 @@ RUN \
         python3-minimal \
         python3-openssl \
         zlib1g \
-        unrar
+        unrar \
+        crudini
 
 RUN \
     mkdir -p /app/lazylibrarian \
