@@ -19,5 +19,4 @@ fi
 exec \
     python3 /app/lazylibrarian/LazyLibrarian.py \
         --config /config/config.ini \
-        --datadir /config \
-        --debug
+        --datadir /config
