@@ -8,6 +8,9 @@ if ! [[ -f /config/config.ini ]]; then
     envsubst < /defaults/config.ini.tmpl > /config/config.ini
 fi
 
+mkdir -p /config/cache
+cp -f /defaults/version.txt /config/cache/version.txt
+
 # Override configuration with environment settings
 [[ -n "${LAZYLIBRARIAN__LOG_DIR}" ]] && crudini --set /config/config.ini General logdir ${LAZYLIBRARIAN__LOG_DIR}
 [[ -n "${LAZYLIBRARIAN__LOG_LEVEL}" ]] && crudini --set /config/config.ini General loglevel ${LAZYLIBRARIAN__LOG_LEVEL}
