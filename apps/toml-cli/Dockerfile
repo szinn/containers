@@ -1,4 +1,4 @@
-FROM rust:1.71@sha256:b988926d2f8728a8ade9c308c94365615ecffa1a2f6d4cc9309c06bdc8f207a9 as builder
+FROM rust:1.72@sha256:c2c1ac303202e763a52451675321a0f6208bb5d6cf67e8324f5fd5152e50c30d as builder
 
 RUN cargo install toml-cli
 
