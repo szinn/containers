@@ -1,36 +1,12 @@
 {
-  "extends": [
-    "config:base",
-    "docker:enableMajor",
-    ":disableRateLimiting",
-    ":dependencyDashboard",
-    ":semanticCommits"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>szinn/renovate-config"],
+  "ignorePaths": [
+    "archive/**"
   ],
-  "platform": "github",
-  "username": "repo-jeeves[bot]",
-  "repositories": ["szinn/containers"],
-  "onboarding": false,
-  "requireConfig": false,
-  "gitAuthor": "repo-jeeves <106431701+repo-jeeves[bot]@users.noreply.github.com>",
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "suppressNotifications": ["prIgnoreNotification"],
-  "commitBodyTable": true,
-  "packageRules": [
-    {
-      "description": "Auto-merge Github Actions",
-      "matchDatasources": ["github-tags"],
-      "automerge": true,
-      "automergeType": "branch",
-      "requiredStatusChecks": null,
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchPackagePatterns": ["renovatebot/github-action"]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["digest"],
-      "commitMessagePrefix": "📣 "
-    }
-  ],
+  "docker": {
+    "pinDigests": true
+  },
   "regexManagers": [
     {
       "description": "Process Dependencies",
