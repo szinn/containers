@@ -1,12 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>szinn/renovate-config"],
+  "extends": [
+    "config:recommended"
+    // "github>szinn/renovate-config"
+  ],
   "ignorePaths": [
     "archive/**"
   ],
-  "docker": {
-    "pinDigests": true
-  },
   "regexManagers": [
     {
       "description": "Process Dependencies",
