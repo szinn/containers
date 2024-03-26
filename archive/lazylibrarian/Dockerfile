@@ -1,4 +1,4 @@
-FROM ghcr.io/szinn/ubuntu:jammy-20221130@sha256:9c2a6b1755dcf60615ae44c1f3d7ad9d9c0f47c0eaddecd09f56340f037208ae
+FROM ghcr.io/szinn/ubuntu:jammy-20221130
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
