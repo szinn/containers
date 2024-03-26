@@ -3,13 +3,6 @@
   "extends": [
     "github>szinn/renovate-config"
   ],
-  "timezone": "America/Toronto",
-  "dependencyDashboardTitle": "Renovate Dashboard",
-  "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
-  "commitBodyTable": true,
-  "rebaseWhen": "conflicted",
-  "platformCommit": true,
-
   "ignorePaths": [
     "archive/**"
   ],
