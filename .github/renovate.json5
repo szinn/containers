@@ -1,45 +1,19 @@
 {
   "extends": [
-    "config:base",
+    "config:recommended",
     "docker:enableMajor",
     ":disableRateLimiting",
-    ":dependencyDashboard",
     ":semanticCommits"
   ],
-  "platform": "github",
-  "username": "repo-jeeves[bot]",
-  "repositories": ["szinn/containers"],
-  "onboarding": false,
-  "requireConfig": false,
-  "gitAuthor": "repo-jeeves <106431701+repo-jeeves[bot]@users.noreply.github.com>",
   "dependencyDashboardTitle": "Renovate Dashboard",
   "suppressNotifications": ["prIgnoreNotification"],
   "commitBodyTable": true,
-  "ignorePaths": [
-    "archive/**"
-  ],
-  "packageRules": [
+  "ignorePaths": ["archive/**"],
+  "customManagers": [
     {
-      "description": "Auto-merge Github Actions",
-      "matchDatasources": ["github-tags"],
-      "automerge": true,
-      "automergeType": "branch",
-      "requiredStatusChecks": null,
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchPackagePatterns": ["renovatebot/github-action"]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["digest"],
-      "commitMessagePrefix": "📣 "
-    }
-  ],
-  "regexManagers": [
-    {
+      "customType": "regex",
       "description": "Process Dependencies",
-      "fileMatch": [
-        ".*"
-      ],
+      "fileMatch": [".*"],
       "matchStrings": [
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n"
       ],

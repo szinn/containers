@@ -22,25 +22,32 @@ on:
       - ".github/renovate.json5"
       - ".github/renovate/**.json*"
 
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
 env:
   LOG_LEVEL: debug
   DRY_RUN: false
-  RENOVATE_CONFIG_FILE: .github/renovate.json5
+  RENOVATE_AUTODISCOVER: true
+  RENOVATE_AUTODISCOVER_FILTER: "${{ github.repository }}"
+  RENOVATE_PLATFORM: github
+  RENOVATE_PLATFORM_COMMIT: true
 
 jobs:
-  main:
+  renovate:
     name: Renovate
     runs-on: ubuntu-latest
     steps:
       - name: Generate Token
-        uses: tibdex/github-app-token@v2
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
         id: app-token
         with:
           app_id: "${{ secrets.BOT_APP_ID }}"
           private_key: "${{ secrets.BOT_APP_PRIVATE_KEY }}"
 
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           token: "${{ steps.app-token.outputs.token }}"
 
@@ -50,7 +57,7 @@ jobs:
           echo "LOG_LEVEL=${{ github.event.inputs.logLevel || env.LOG_LEVEL }}" >> "${GITHUB_ENV}"
 
       - name: Renovate
-        uses: renovatebot/github-action@v40.1.6
+        uses: renovatebot/github-action@23b01dbf6f38965076a36aff87f802263164f204 # v40.1.6
         with:
-          configurationFile: "${{ env.RENOVATE_CONFIG_FILE }}"
+          configurationFile: .github/renovate.json5
           token: "${{ steps.app-token.outputs.token }}"
