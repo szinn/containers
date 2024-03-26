@@ -3,7 +3,8 @@
     "config:recommended",
     "docker:enableMajor",
     ":disableRateLimiting",
-    ":semanticCommits"
+    ":semanticCommits",
+    "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard",
   "suppressNotifications": ["prIgnoreNotification"],
