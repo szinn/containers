@@ -1,22 +1,37 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>szinn/renovate-config"
+    // "github>szinn/renovate-config"
+    "config:best-practices",
+    ":disableRateLimiting",
+    // "docker:enableMajor",
+    // ":enablePreCommit",
+    // ":semanticCommits",
+    // "github>szinn/renovate-config:automerge-github-actions.json5",
+    // "github>szinn/renovate-config:labels.json5",
+    // "github>szinn/renovate-config:semantic-commits.json5",
+    // "github>szinn/renovate-config:generic-regex-manager.json5"
   ],
+  "timezone": "America/Toronto",
+  "dependencyDashboardTitle": "Renovate Dashboard",
+  "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
+  "commitBodyTable": true,
+  "rebaseWhen": "conflicted",
+  "platformCommit": true,
+
   "ignorePaths": [
     "archive/**"
   ],
-  "regexManagers": [
-    {
-      "description": "Process Dependencies",
-      "fileMatch": [
-        ".*"
-      ],
-      "matchStrings": [
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n"
-      ],
-      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    }
-  ]
+  // "customManagers": [
+  //   {
+  //     "customType": "regex",
+  //     "description": "Process Dependencies",
+  //     "fileMatch": [".*"],
+  //     "matchStrings": [
+  //       "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n"
+  //     ],
+  //     "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+  //     "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+  //   }
+  // ]
 }
