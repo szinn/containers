@@ -1,6 +1,25 @@
-# Container images
+<!---
+NOTE: AUTO-GENERATED FILE
+to edit this file, instead edit its template at: ./github/scripts/templates/README.md.j2
+-->
+<div align="center">
 
-Welcome to our container images, if looking for a container start by [browsing the container packages](https://github.com/szinn?tab=packages&repo_name=containers).
+
+## Containers
+
+_An opinionated collection of container images_
+
+</div>
+
+<div align="center">
+
+![GitHub Repo stars](https://img.shields.io/github/stars/onedr0p/containers?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/onedr0p/containers?style=for-the-badge)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/onedr0p/containers/release-scheduled.yaml?style=for-the-badge&label=Scheduled%20Release)
+
+</div>
+
+Welcome to our container images, if looking for a container start by [browsing the GitHub Packages page for this repo's packages](https://github.com/onedr0p?tab=packages&repo_name=containers).
 
 ## Mission statement
 
@@ -8,20 +27,18 @@ The goal of this project is to support [semantically versioned](https://semver.o
 
 We also try to adhere to a [KISS principle](https://en.wikipedia.org/wiki/KISS_principle), logging to stdout, [one process per container](https://testdriven.io/tips/59de3279-4a2d-4556-9cd0-b444249ed31e/), no [s6-overlay](https://github.com/just-containers/s6-overlay) and all images are built on top of [Alpine](https://hub.docker.com/_/alpine) or [Ubuntu](https://hub.docker.com/_/ubuntu).
 
-In most cases if the application developers supports a container image and adheres to the above I will often not build a custom image and use their image instead.
-
 ## Tag immutability
 
 The containers built here do not use immutable tags, as least not in the more common way you have seen from [linuxserver.io](https://fleet.linuxserver.io/) or [Bitnami](https://bitnami.com/stacks/containers).
 
-We take do take a similar approach but instead of appending a `-ls69` or `-r420` prefix to the tag we instead insist on pinning to the sha256 digest of the image, while this is not as pretty it is just as functional in making the images immutable.
+We do take a similar approach but instead of appending a `-ls69` or `-r420` prefix to the tag we instead insist on pinning to the sha256 digest of the image, while this is not as pretty it is just as functional in making the images immutable.
 
 | Container                                          | Immutable |
 |----------------------------------------------------|-----------|
-| `ghcr.io/szinn/sonarr:rolling`                   | ❌         |
-| `ghcr.io/szinn/sonarr:3.0.8.1507`                | ❌         |
-| `ghcr.io/szinn/sonarr:rolling@sha256:8053...`    | ✅         |
-| `ghcr.io/szinn/sonarr:3.0.8.1507@sha256:8053...` | ✅         |
+| `ghcr.io/onedr0p/sonarr:rolling`                   | ❌         |
+| `ghcr.io/onedr0p/sonarr:3.0.8.1507`                | ❌         |
+| `ghcr.io/onedr0p/sonarr:rolling@sha256:8053...`    | ✅         |
+| `ghcr.io/onedr0p/sonarr:3.0.8.1507@sha256:8053...` | ✅         |
 
 _If pinning an image to the sha256 digest, tools like [Renovate](https://github.com/renovatebot/renovate) support updating the container on a digest or application version change._
 
@@ -43,6 +60,16 @@ Some applications do not support defining configuration via environment variable
 ## Configuration volume
 
 For applications that need to have persistent configuration data the config volume is hardcoded to `/config` inside the container. This is not able to be changed in most cases.
+
+## Available Images
+
+Each Image will be built with a `rolling` tag, along with tags specific to it's version. Available Images Below
+
+Container | Channel | Image
+--- | --- | ---
+[dmarc-report](https://github.com/szinn/containers/pkgs/container/dmarc-report) | main | ghcr.io/szinn/dmarc-report
+[pihole-unbound](https://github.com/szinn/containers/pkgs/container/pihole-unbound) | master | ghcr.io/szinn/pihole-unbound
+
 
 ## Contributing
 
@@ -73,6 +100,16 @@ Here's an example of how tags are created in the GitHub workflows, be careful wi
 | `sonarr`    | `main`    | `true`  | `false` | `sonarr:3.0.8.1507`         |
 | `sonarr`    | `main`    | `true`  | `false` | `sonarr:rolling`            |
 
+## Deprecations
+
+Containers here can be **deprecated** at any point, this could be for any reason described below.
+
+1. The upstream application is **no longer actively developed**
+2. The upstream application has an **official upstream container** that follows closely to the mission statement described here
+3. The upstream application has been **replaced with a better alternative**
+4. The **maintenance burden** of keeping the container here **is too bothersome**
+
+**Note**: Deprecated containers will remained published to this repo for 6 months after which they will be pruned.
 ## Credits
 
-A lot of inspiration and ideas are thanks to the hard work of [onedr0p](https://github.com/onedr0p), [bjw-s](https://github.com/bjw-s), [hotio.dev](https://hotio.dev/) and [linuxserver.io](https://www.linuxserver.io/) contributors.
+A lot of inspiration and ideas are thanks to the hard work of [hotio.dev](https://hotio.dev/) and [linuxserver.io](https://www.linuxserver.io/) contributors.
