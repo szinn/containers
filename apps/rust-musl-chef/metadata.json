@@ -4,9 +4,7 @@
   "channels": [
     {
       "name": "main",
-      "platforms": [
-        "linux/amd64"
-      ],
+      "platforms": ["linux/amd64"],
       "stable": true,
       "tests": {
         "enabled": false,

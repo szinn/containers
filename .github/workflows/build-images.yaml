@@ -93,8 +93,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image:
-          ["${{ fromJSON(needs.prepare.outputs.matrices).imagePlatforms }}"]
+        image: ["${{ fromJSON(needs.prepare.outputs.matrices).imagePlatforms }}"]
     permissions:
       contents: read
       packages: write
