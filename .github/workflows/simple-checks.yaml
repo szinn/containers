@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 0
 
       - name: Get Changed Files
         id: changed-files
-        uses: tj-actions/changed-files@v43
+        uses: tj-actions/changed-files@20576b4b9ed46d41e2d45a2256e5e2316dde6834 # v43
         with:
           files_yaml: |
             cue:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Setup CUE
         if: ${{ steps.changed-files.outputs.cue_any_changed == 'true' }}
-        uses: cue-lang/setup-cue@v1.0.1
+        uses: cue-lang/setup-cue@a93fa358375740cd8b0078f76355512b9208acb1 # v1.0.1
 
       # Run against all files to ensure they are tested if the cue schema is changed.
       - name: Validate image metadata
