@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/rust:1.77.2@sha256:0240e09d68407307030cb91facbaee9de25e345e730d495ebe343236368bd257 as chef
+FROM public.ecr.aws/docker/library/rust:1.77.2@sha256:83101f6985c93e1e6501b3375de188ee3d2cbb89968bcc91611591f9f447bd42 as chef
 WORKDIR /build
 
 # compile openssl for static linking
