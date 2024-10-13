@@ -68,6 +68,9 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 Container | Channel | Image
 --- | --- | ---
 [dmarc-report](https://github.com/szinn/containers/pkgs/container/dmarc-report) | main | ghcr.io/szinn/dmarc-report
+[lidarr](https://github.com/szinn/containers/pkgs/container/lidarr) | master | ghcr.io/szinn/lidarr
+[lidarr-develop](https://github.com/szinn/containers/pkgs/container/lidarr-develop) | develop | ghcr.io/szinn/lidarr-develop
+[lidarr-nightly](https://github.com/szinn/containers/pkgs/container/lidarr-nightly) | nightly | ghcr.io/szinn/lidarr-nightly
 [pihole-unbound](https://github.com/szinn/containers/pkgs/container/pihole-unbound) | master | ghcr.io/szinn/pihole-unbound
 
 
