@@ -72,6 +72,8 @@ Container | Channel | Image
 [lidarr-develop](https://github.com/szinn/containers/pkgs/container/lidarr-develop) | develop | ghcr.io/szinn/lidarr-develop
 [lidarr-nightly](https://github.com/szinn/containers/pkgs/container/lidarr-nightly) | nightly | ghcr.io/szinn/lidarr-nightly
 [pihole-unbound](https://github.com/szinn/containers/pkgs/container/pihole-unbound) | master | ghcr.io/szinn/pihole-unbound
+[readarr-develop](https://github.com/szinn/containers/pkgs/container/readarr-develop) | develop | ghcr.io/szinn/readarr-develop
+[readarr-nightly](https://github.com/szinn/containers/pkgs/container/readarr-nightly) | nightly | ghcr.io/szinn/readarr-nightly
 
 
 ## Contributing
