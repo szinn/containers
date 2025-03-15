@@ -22,5 +22,12 @@
       "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
+  ],
+  "packageRules": [
+    {
+      "description": ["Don't pin digests for tj-actions/changed-files"],
+      "matchDepNames": ["tj-actions/changed-files"],
+      "pinDigests": false
+    }
   ]
 }
