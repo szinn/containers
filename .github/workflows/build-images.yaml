@@ -159,7 +159,7 @@ jobs:
         with:
           registry: ghcr.io
           username: "${{ github.actor }}"
-          password: "${{ secrets.GHCR_PASSWORD }}"
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Setup Goss
         if: ${{ matrix.image.tests_enabled }}
@@ -287,7 +287,7 @@ jobs:
         with:
           registry: ghcr.io
           username: "${{ github.actor }}"
-          password: "${{ secrets.GHCR_PASSWORD }}"
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Log Files
         working-directory: /tmp/${{ matrix.image.name }}/digests

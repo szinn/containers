@@ -2,6 +2,11 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Scheduled Release
 
+permissions:
+  contents: read
+  id-token: write
+  packages: write
+
 concurrency:
   group: container-release
   cancel-in-progress: false
@@ -35,6 +40,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
     with:
       appsToBuild: ${{ inputs.appsToBuild }}
       force: ${{ inputs.force == true }}
