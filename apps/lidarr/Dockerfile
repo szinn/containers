@@ -3,11 +3,10 @@ ARG VERSION
 
  ARG TARGETPLATFORM
  ARG VERSION
- ARG CHANNEL
 
  ENV \
      COMPlus_EnableDiagnostics="0" \
-     LIDARR__UPDATE__BRANCH="${CHANNEL}"
+     LIDARR__UPDATE__BRANCH="develop"
 
  ENV UMASK="0002" \
      TZ="Etc/UTC"
@@ -51,7 +50,7 @@ ARG VERSION
      && chmod -R 755 /app \
      && rm -rf /tmp/*
 
- COPY ./apps/lidarr/entrypoint.sh /entrypoint.sh
+ COPY ./entrypoint.sh /entrypoint.sh
 
  USER nobody:nogroup
  WORKDIR /config

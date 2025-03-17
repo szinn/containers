@@ -2,6 +2,7 @@
 
 PHP_ENV_FILE="/config/env.conf"
 
+mkdir -p /config
 echo '[www]' > "$PHP_ENV_FILE"
 echo 'user = nginx' >> "$PHP_ENV_FILE"
 echo 'group = www-data' >> "$PHP_ENV_FILE"
@@ -18,7 +19,6 @@ else
     cat /config/dmarc-reports.log
     exit 1
 fi
-
 
 # Start supervisord and services
 /usr/bin/supervisord -n -c /etc/supervisord.conf
