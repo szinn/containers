@@ -1,0 +1,4 @@
+---
+# renovate: datasource=github-releases depName=rust-lang/rust
+version: 1.84.0
+name: rust-musl-chef
