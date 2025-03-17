@@ -13,12 +13,12 @@ on:
         description: Whether to release the app
         required: false
         default: false
-  # pull_request:
-  #   branches: ["main"]
-  #   paths: ["apps/**"]
-  # push:
-  #   branches: ["main"]
-  #   paths: ["apps/**"]
+  pull_request:
+    branches: ["main"]
+    paths: ["apps/**"]
+  push:
+    branches: ["main"]
+    paths: ["apps/**"]
 
 jobs:
   changed:
