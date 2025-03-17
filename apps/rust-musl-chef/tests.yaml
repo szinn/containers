@@ -1,0 +1,5 @@
+schemaVersion: "2.0.0"
+fileExistenceTests:
+  - name: cargo-chef
+    path: /usr/local/cargo/bin/cargo-chef
+    shouldExist: true
