@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/rust:1.85.1 as chef
+FROM public.ecr.aws/docker/library/rust:1.85.1@sha256:98970a718bb979f65dc22a8e84ca9f9f7105098e42f305c407a34d16d7ca27b0 as chef
 
 ARG TARGETARCH
 
